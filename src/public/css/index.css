@@ -1,0 +1,215 @@
+/* --- 全体設定 --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+.product-page {
+    max-width: 1200px;
+    margin: 20px auto;
+
+}
+
+/* ヘッダー部分 */
+.product-page__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product-page__title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-page__add-button {
+    background-color: #ff8800;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-page__add-button:hover {
+    background-color: #cc6f00;
+}
+
+/* 左右のコンテンツ配置　 */
+.product-page__content {
+    display: flex;
+    gap: 20px;
+}
+
+/* 左側のフィルターエリア */
+.product-page__filters {
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 検索フォーム */
+.product-page__search {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.product-page__search-input {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    flex: 1;
+}
+
+.product-page__search-button {
+    background-color: #ffd700;
+    color: #666;
+    border: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-page__search-button:hover {
+    background-color: #e6b800;
+}
+
+/* 並び替え */
+.product-page__sort{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 25px;
+    border-bottom: 0.2px solid #ddd;
+}
+.product-page__sort-title {
+    font-size: 20px;
+    color: #333;
+}
+
+.product-page__sort-select {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    flex:1;
+}
+
+/* 商品一覧 */
+.product-list {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card__image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-card__name {
+    font-size: 16px;
+    color: #333;
+    margin-left: 10px;
+}
+
+.product-card__price {
+    font-size: 18px;
+    color: #666;
+    margin-right: 10px;
+}
+
+/* ページネーション全体のスタイル */
+.pagination {
+    
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 8px;
+    /* 各ページリンクの間隔 */
+}
+
+/* ページリンクのボタン */
+.pagination li a,
+.pagination li span {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #333;
+    /* 青色 */
+    text-decoration: none;
+    border: 1px solid #ddd;
+    /* 枠線 */
+    border-radius: 50%;
+    /* 丸み */
+    transition: all 0.3s ease;
+    /* ホバー時のアニメーション */
+}
+
+/* ホバー時の効果 */
+.pagination li a:hover {
+    background-color: #e6b800;
+    /* 背景を青に */
+    color: #fff;
+    /* 文字色を白に */
+}
+
+/* 現在のページのスタイル */
+.pagination li.active span {
+    background-color: #ffd700;
+    /* 青背景 */
+    color: #fff;
+    /* 白文字 */
+    border-color: #ffd700;
+    /* 枠線も青 */
+    pointer-events: none;
+    /* クリックできない */
+}
+
+/* 無効化されたリンクのスタイル */
+.pagination li.disabled span {
+    color: #ccc;
+    /* 薄い灰色 */
+    background-color: #f8f9fa;
+    /* 薄い背景 */
+    border-color: #ddd;
+    pointer-events: none;
+    /* クリック不可 */
+}
