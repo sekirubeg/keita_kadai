@@ -40,7 +40,7 @@
         <!-- 商品の一覧 -->
         <section class="product-list">
             @foreach($products as $product)
-            <div class="product-card">
+            <a href="{{ route('products.detail', ['id' => $product->id]) }}" class="product-card">
                 <div class="product-card__image">
                     <img src="{{ asset('storage/' . $product['image']) }}" alt="{{ $product['name'] }}">
                 </div>
@@ -48,7 +48,7 @@
                     <h2 class="product-card__name">{{ $product['name'] }}</h2>
                     <p class="product-card__price">¥{{ number_format($product['price']) }}</p>
                 </div>
-            </div>
+            </a>
             @endforeach
         </section>
     </div>

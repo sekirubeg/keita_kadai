@@ -16,3 +16,5 @@ use App\Http\Controllers\ProductController;
 Route::get('/products', [ProductController::class, 'index']);
 Route::post('/search',
 [ProductController::class, 'search']);
+Route::get('/products/{id}',
+[ProductController::class, 'detail'])->name('products.detail');
