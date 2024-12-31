@@ -40,7 +40,7 @@
         <!-- 商品の一覧 -->
         @if (@isset($item))
             <section class="product-list">
-                <div class="product-card">
+                <a href="{{ route('products.detail', ['id' => $item->id]) }}" class="product-card">
                     <div class="product-card__image">
                         <img src="{{ asset('storage/' . $item['image']) }}" alt="{{ $item['name'] }}">
                     </div>
@@ -48,7 +48,7 @@
                         <h2 class="product-card__name">{{ $item['name'] }}</h2>
                         <p class="product-card__price">¥{{ number_format($item['price']) }}</p>
                     </div>
-                </div>
+                </a>
             </section>
         @endif
     </div>

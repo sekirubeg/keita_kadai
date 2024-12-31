@@ -18,3 +18,7 @@ Route::post('/search',
 [ProductController::class, 'search']);
 Route::get('/products/{id}',
 [ProductController::class, 'detail'])->name('products.detail');
+Route::get('/products/{id}/update',
+[ProductController::class, 'update'])->name('product.update');
+Route::post('/delete', [ProductController::class, 'delete']);
+Route::post('/update', [ProductController::class, 'update']);
