@@ -41,7 +41,7 @@
                 <div class="product-edit__radio-group">
                     @foreach ($allSeasons as $season)
                         <label class="product-edit__radio">
-                            <input 
+                            <input
                                 type="checkbox" 
                                 name="seasons[]" 
                                 value="{{ $season->id }}" 

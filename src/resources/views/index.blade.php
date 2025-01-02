@@ -13,7 +13,10 @@
     <div class="product-page__header">
         <h1 class="product-page__title">商品一覧</h1>
         <div class="product-page__add">
-            <button class="product-page__add-button">+ 商品の追加</button>
+            <form action="/add" method="post">
+                @csrf
+                <button class="product-page__add-button">+ 商品の追加</button>
+            </form>
         </div>
     </div>
 

@@ -1,0 +1,129 @@
+/* 全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* 商品登録セクション */
+.product-register {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* タイトル */
+.product-register__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* フィールド */
+.product-register__field {
+    margin: 20px 0 ;
+}
+
+/* ラベル */
+.product-register__label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* 必須マーク */
+.required {
+    color: #fff;
+    background-color: red;
+    padding: 2px 5px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+/* 入力フィールド */
+.product-register__input,
+.product-register__textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.product-register__textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* ファイル入力 */
+.product-register__file {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* 季節オプション */
+.product-register__season-options label {
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+/* ボタン */
+.product-register__actions {
+    display: flex;
+    /* Flexboxを有効化 */
+    justify-content: center;
+    /* 子要素を中央揃え */
+    gap: 10px;
+    /* ボタン間の間隔 */
+    margin-top: 20px;
+    /* 上部に少し余白 */
+}
+.button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    width: 150px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button--back {
+    background: #e0e0e0;
+    color: #000;
+    margin-right: 10px;
+    text-decoration: none;
+    text-align: center;
+    width:  120px;
+}
+
+.button--back:hover {
+    background: #d6d6d6;
+}
+
+.button--submit {
+    background: #fdd835;
+    color: #000;
+}
+
+.button--submit:hover {
+    background: #fbc02d;
+}
+
+/* ヒント */
+.hint {
+    font-size: 12px;
+    color: red;
+    margin-left: 10px;
+}
+
+.product-register__image{
+    margin-top: 10px;
+}
+
+.product-register__season-options{
+    margin-top: 10px;
+}

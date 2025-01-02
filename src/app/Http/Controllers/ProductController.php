@@ -50,4 +50,26 @@ class ProductController extends Controller
 
     return redirect('/products');
     }
+    public function add()
+    {
+        $allSeasons = Season::all(); // 全ての季節を取得
+        return view('add',  compact('allSeasons'));
+    }
+    public function store(Request $request)
+    {
+        $product = new Product();
+
+        if($request->hasFile('image')){
+            $originalName = $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('fruits-img', $originalName, 'public');
+            $product->image = $path;
+        }
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->text = $request->text;
+
+        $product->save();
+        $product->seasons()->sync($request->seasons);
+        return redirect('/products');
+    }
 }

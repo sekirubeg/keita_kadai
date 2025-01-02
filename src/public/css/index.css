@@ -27,6 +27,8 @@ body {
 }
 
 .product-page__add-button {
+    display: block;
+    text-decoration: none;
     background-color: #ff8800;
     color: #fff;
     border: none;
@@ -190,7 +192,8 @@ body {
 
 /* ホバー時の効果 */
 .pagination li a:hover {
-    background-color: #e6b800;
+    background-color: #666;
+    opacity: 0.4;
     /* 背景を青に */
     color: #fff;
     /* 文字色を白に */
