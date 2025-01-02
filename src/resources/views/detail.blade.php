@@ -7,9 +7,11 @@
 
 @section('content')
 
+
 <section class="product-edit">
     <div class="product-edit__breadcrumbs">
         <a href="/products" class="product-edit__breadcrumbs-link">商品一覧</a> &gt; <span class="product-edit__breadcrumbs-current">{{ $product['name'] }}</span>
+
     </div>
     <form action="/update" method="post" enctype="multipart/form-data">
         @csrf
@@ -52,24 +54,6 @@
                     @endforeach
                 </div>
             </div>
-
-            <!-- <div class="product-edit__field">
-                <span class="product-edit__label">季節</span>
-                <div class="product-edit__radio-group">
-                    <label class="product-edit__radio">
-                        <input type="radio" name="season" value="spring" class="product-edit__radio-input"> 春
-                    </label>
-                    <label class="product-edit__radio">
-                        <input type="radio" name="season" value="summer" class="product-edit__radio-input" checked> 夏
-                    </label>
-                    <label class="product-edit__radio">
-                        <input type="radio" name="season" value="autumn" class="product-edit__radio-input"> 秋
-                    </label>
-                    <label class="product-edit__radio">
-                        <input type="radio" name="season" value="winter" class="product-edit__radio-input"> 冬
-                    </label>
-                </div>
-            </div> -->
 
             <div class="product-edit__field">
                 <label for="description" class="product-edit__label">商品説明</label>

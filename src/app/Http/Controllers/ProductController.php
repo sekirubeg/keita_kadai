@@ -15,12 +15,27 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $name = $request->input('name');
-        $item = Product::where('name', 'LIKE',"%{$name}%")->first();
+        $sort = $request->input('sort');
+        $query = Product::query();
+
+        if ($name) {
+        $query->where('name', 'LIKE', "%{$name}%");
+        }
+
+        if ($sort === 'price_desc') {
+        $query->orderBy('price', 'desc');
+        } elseif ($sort === 'price_asc') {
+        $query->orderBy('price', 'asc');
+        }
+        $items = $query->paginate(6);
+
         $param =[
-            'item' => $item
+            'items' => $items,
+            'name' => $name,
+            'sort' => $sort,
         ];
         return view('search', $param);
-    }
+        }
     public function detail($id)
     {
         $product = Product::with('seasons')->findOrFail($id); // 商品とその関連する季節を取得
@@ -50,7 +65,7 @@ class ProductController extends Controller
 
     return redirect('/products');
     }
-    public function add()
+    public function register()
     {
         $allSeasons = Season::all(); // 全ての季節を取得
         return view('add',  compact('allSeasons'));
