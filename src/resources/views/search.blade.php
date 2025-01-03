@@ -29,18 +29,16 @@
             <!-- 検索フォーム -->
             <form class="product-page__search" method="get" action="/search">
                 @csrf
-                <input name="name" type="text" class="product-page__search-input" placeholder="商品名で検索">
+                <input name="name" type="text" class="product-page__search-input" placeholder="商品名で検索" value="{{request('name')}}">
                 <button class="product-page__search-button" type="submit">検索</button>
-            </form>
+            
             <!-- 並び替え -->
-            <div class="product-page__sort">
-                <h3 class="product-page__sort-title">価格順で表示</h3>
-                <form method="get" action="/search">
-                    <input type="hidden" name="name" value="{{ request('name') }}">
-                    <select name="sort" class="product-page__sort-select" onchange="this.form.submit()">
-                        <option value="" disabled {{ is_null(request('sort')) ? 'selected' : '' }}>価格の並び替え</option>
-                        <option value="asc" {{ request('sort') === 'price_asc' ? 'selected' : '' }}>低い順</option>
-                        <option value="desc" {{ request('sort') === 'price_desc' ? 'selected' : '' }}>高い順</option>
+                    <div class="product-page__sort">
+                    <h3 class="product-page__sort-title">価格順で表示</h3>
+                    <select class="product-page__sort-select" name="sort"onchange="this.form.submit()">
+                        <option disabled {{ is_null(request('sort')) ? 'selected' : '' }}>価格の並び替え</option>
+                        <option value="price_desc" {{ request('sort') === 'price_desc' ? 'selected' : '' }}>高い順</option>
+                        <option value="price_asc" {{ request('sort') === 'price_asc' ? 'selected' : '' }}>低い順</option>
                     </select>
                 </form>
 
@@ -56,6 +54,7 @@
                 <a href="/search?name={{ request('name') }}" class="product-page__reset-sort">×</a>
                 </div>
                 @endif
+            </div>
         </aside>
 
         <!-- 商品の一覧 -->
