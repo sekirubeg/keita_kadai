@@ -22,5 +22,5 @@ Route::get('/products/{id}/update',
 [ProductController::class, 'update'])->name('product.update');
 Route::post('/delete', [ProductController::class, 'delete']);
 Route::post('/update', [ProductController::class, 'update']);
-Route::post('/register',[ProductController::class,'register']);
+Route::get('/register',[ProductController::class,'register']);
 Route::post('/store',[ProductController::class,'store']);

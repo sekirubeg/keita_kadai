@@ -13,19 +13,28 @@
             <!-- 商品名 -->
             <div class="product-register__field">
                 <label for="name" class="product-register__label">商品名 <span class="required">必須</span></label>
-                <input type="text" id="name" name="name" class="product-register__input" placeholder="商品名を入力">
+                <input type="text" id="name" name="name" class="product-register__input" placeholder="商品名を入力" value="{{ old('name') }}">
+                @foreach($errors->get('name') as $error)
+                <p style = "color:red;">{{$error}}</p>
+                @endforeach
             </div>
 
             <!-- 値段 -->
             <div class="product-register__field">
                 <label for="price" class="product-register__label">値段 <span class="required">必須</span></label>
-                <input type="integer" id="price" name="price" class="product-register__input" placeholder="値段を入力">
+                <input type="integer" id="price" name="price" class="product-register__input" placeholder="値段を入力" value="{{ old('price') }}">
+                @foreach($errors->get('price') as $error)
+                <p style = "color:red;">{{$error}}</p>
+                @endforeach
             </div>
 
             <!-- 商品画像 -->
             <div class="product-register__field">
                 <label class="product-register__label">商品画像 <span class="required">必須</span></label>
                 <input type="file" name="image" class="product-register__image">
+                @foreach($errors->get('image') as $error)
+                <p style = "color:red;">{{$error}}</p>
+                @endforeach
             </div>
 
             <!-- 季節 -->
@@ -43,13 +52,19 @@
                         </label>
                     @endforeach
                 </div>
+                @foreach($errors->get('seasons') as $error)
+                <p style = "color:red;">{{$error}}</p>
+                @endforeach
             </div>
 
             <!-- 商品説明 -->
             <div class="product-register__field">
                 <label for="description" class="product-register__label">商品説明 <span class="required">必須</span></label>
-                <textarea id="description" name="text" class="product-register__textarea" placeholder="商品の説明を入力"></textarea>
+                <textarea id="description" name="text" class="product-register__textarea" placeholder="商品の説明を入力">{{ old('text') }}</textarea>
             </div>
+            @foreach($errors->get('text') as $error)
+                <p style = "color:red;">{{$error}}</p>
+                @endforeach
 
             <!-- ボタン -->
             <div class="product-register__actions">

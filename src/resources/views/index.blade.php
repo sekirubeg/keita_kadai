@@ -13,7 +13,7 @@
     <div class="product-page__header">
         <h1 class="product-page__title">商品一覧</h1>
         <div class="product-page__add">
-            <form action="/register" method="post">
+            <form action="/register" method="get">
                 @csrf
                 <button class="product-page__add-button">+ 商品の追加</button>
             </form>
@@ -34,8 +34,8 @@
                 <h3 class="product-page__sort-title">価格順で表示</h3>
                 <form action="/search" method="get">
                     @csrf
-                    <select class="product-page__sort-select" name="sort">
-                        <option disabled selected>価格の並び替え</option>
+                    <select class="product-page__sort-select" name="sort"onchange="this.form.submit()">
+                        <option disabled {{ is_null(request('sort')) ? 'selected' : '' }}>価格の並び替え</option>
                         <option value="price_desc" {{ request('sort') === 'price_desc' ? 'selected' : '' }}>高い順</option>
                         <option value="price_asc" {{ request('sort') === 'price_asc' ? 'selected' : '' }}>低い順</option>
                     </select>

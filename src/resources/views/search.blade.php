@@ -13,9 +13,7 @@
      
     <div class="product-page__header">
     
-        <h1 class="product-page__title">@foreach($items as $item)<span>
-    ”{{ $item['name'] }}”
-    </span>@endforeachの商品一覧</h1>
+        <h1 class="product-page__title">@foreach($items as $item)<span>”{{ $item['name'] }}” </span>@endforeachの商品一覧</h1>
         <div class="product-page__add">
             <form action="/register" method="post">
                 @csrf
@@ -40,12 +38,24 @@
                 <form method="get" action="/search">
                     <input type="hidden" name="name" value="{{ request('name') }}">
                     <select name="sort" class="product-page__sort-select" onchange="this.form.submit()">
-                        <option value="" disabled selected>価格の並び替え</option>
-                        <option value="asc" {{ request('sort') === 'asc' ? 'selected' : '' }}>安い順</option>
-                        <option value="desc" {{ request('sort') === 'desc' ? 'selected' : '' }}>高い順</option>
+                        <option value="" disabled {{ is_null(request('sort')) ? 'selected' : '' }}>価格の並び替え</option>
+                        <option value="asc" {{ request('sort') === 'price_asc' ? 'selected' : '' }}>低い順</option>
+                        <option value="desc" {{ request('sort') === 'price_desc' ? 'selected' : '' }}>高い順</option>
                     </select>
                 </form>
-            </div>
+
+                @if (request('sort'))
+                <div class="product-page__current-sort">
+                <span class="product-page__current-sort-tag">
+                @if (request('sort') === 'price_asc')
+                低い順に表示
+                @elseif (request('sort') === 'price_desc')
+                高い順に表示
+                @endif
+                </span>
+                <a href="/search?name={{ request('name') }}" class="product-page__reset-sort">×</a>
+                </div>
+                @endif
         </aside>
 
         <!-- 商品の一覧 -->
@@ -63,7 +73,7 @@
                 @endforeach
             </section>
     </div>
-    {{ $items->links('vendor.pagination.default') }}
+    {{ $items->appends(request()->query())->links('vendor.pagination.default') }}
 </div>
 
 

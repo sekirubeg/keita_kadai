@@ -221,3 +221,18 @@ body {
     pointer-events: none;
     /* クリック不可 */
 }
+.product-page__current-sort{
+    margin-top: 20px;
+    border: 1px solid #ffd700;
+    border-radius: 30px;
+    padding: 10px 13px;
+    width: 130px;
+}
+.product-page__reset-sort{
+    text-decoration: none;
+    border: 1px solid #ffd700;
+    border-radius: 50%;
+    padding: 1px 5px;
+    color: #ffd700;
+    margin-left: 6px;
+}

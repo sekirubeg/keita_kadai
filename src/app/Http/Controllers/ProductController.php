@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Season;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -47,7 +48,7 @@ class ProductController extends Controller
         Product::find($request->id)->delete();
         return redirect('/products');
     }
-    public function update(Request $request)
+    public function update(ProductRequest $request)
     {
         $product = Product::findOrFail($request->id);
 
@@ -70,7 +71,7 @@ class ProductController extends Controller
         $allSeasons = Season::all(); // 全ての季節を取得
         return view('add',  compact('allSeasons'));
     }
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $product = new Product();
 
