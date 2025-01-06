@@ -15,7 +15,7 @@
     
         <h1 class="product-page__title">@foreach($items as $item)<span>”{{ $item['name'] }}” </span>@endforeachの商品一覧</h1>
         <div class="product-page__add">
-            <form action="/register" method="post">
+            <form action="/register" method="get">
                 @csrf
                 <button class="product-page__add-button">+ 商品の追加</button>
             </form>
